@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qc.qcsystem.mapper.UserMapper">
+    <!-- 表名改为 qc_user -->
+    <select id="login" resultType="User">
+        select user_id,user_name,password,role
+        from qc_user
+        where user_id = #{userId} and password = #{password}
+    </select>
+</mapper>

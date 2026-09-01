@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qc.qcsystem.mapper.BatchMapper">
+    <select id="selectAll" resultType="Batch">
+        select * from batch
+    </select>
+    <select id="selectById" resultType="Batch">
+        select * from batch where batch_id = #{batchId}
+    </select>
+    <insert id="insert">
+        insert into batch(batch_id,product_id,produce_num,produce_date,produce_team,batch_status)
+        values(#{batchId},#{productId},#{produceNum},#{produceDate},#{produceTeam},#{batchStatus})
+    </insert>
+    <update id="update">
+        update batch set product_id=#{productId},produce_num=#{produceNum},produce_date=#{produceDate},
+        produce_team=#{produceTeam},batch_status=#{batchStatus}
+        where batch_id = #{batchId}
+    </update>
+    <delete id="deleteById">
+        delete from batch where batch_id = #{batchId}
+    </delete>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qc.qcsystem.mapper.ProductMapper">
+    <select id="selectAll" resultType="Product">
+        select * from product
+    </select>
+    <select id="selectById" resultType="Product">
+        select * from product where product_id = #{productId}
+    </select>
+    <insert id="insert">
+        insert into product(product_id,product_name,spec_model,standard_id,unit,production_craft)
+        values(#{productId},#{productName},#{specModel},#{standardId},#{unit},#{productionCraft})
+    </insert>
+    <update id="update">
+        update product set product_name=#{productName},spec_model=#{specModel},
+        standard_id=#{standardId},unit=#{unit},production_craft=#{productionCraft}
+        where product_id = #{productId}
+    </update>
+    <delete id="deleteById">
+        delete from product where product_id = #{productId}
+    </delete>
+</mapper>
