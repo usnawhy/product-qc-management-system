@@ -18,7 +18,6 @@ public class LoginController {
     @GetMapping("/login")
     public Map<String,Object> login(@RequestParam String userId, @RequestParam String password){
         Map<String,Object> res = new HashMap<>();
-        // 修正：使用userService调用登录方法
         User loginUser = userService.login(userId,password);
         if(loginUser != null){
             res.put("code",200);
